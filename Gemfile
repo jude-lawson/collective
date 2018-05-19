@@ -42,6 +42,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'pry'
+  gem 'rubocop'
 end
 
 group :development do
