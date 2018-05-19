@@ -56,22 +56,22 @@ Teachers setup classes and students can add themselves. Teachers can also add id
 ## User Stories
 
 #### User Pages (Student & Teachers)
-[ ] As a visitor, when I visit `/` and click `Sign Up`, I am able to create a profile (student by default).
-[ ] As a user when I go to  `/users/:id`, I can view, update, and delete my profile. (extension would be to alias that url)
-[ ] As a user or visitor when I go to `/users`, I can view all users.
-[ ] As a user or visitor when I go to `/users` and click on the name of a user I am taken to `/users/:id` and I can see all of their posts. 
-[ ] As a user or visitor, when I go  to `/topics` I can view all topics.
-[ ] As a user or visitor, when I go  to `/topics` and I click on the title of a topic, I am taken to that discussion with the option to either `Join Discussion` or `Sign Up`.
+[] As a visitor, when I visit `/` and click `Sign Up`, I am able to create a profile (student by default).
+[] As a user when I go to  `/users/:id`, I can view, update, and delete my profile. (extension would be to alias that url)
+[] As a user or visitor when I go to `/users`, I can view all users.
+[] As a user or visitor when I go to `/users` and click on the name of a user I am taken to `/users/:id` and I can see all of their posts. 
+[] As a user or visitor, when I go  to `/topics` I can view all topics.
+[] As a user or visitor, when I go  to `/topics` and I click on the title of a topic, I am taken to that discussion with the option to either `Join Discussion` or `Sign Up`.
 
 #### Topic Pages (Includes functionality for Posts and Comments)
-[ ] As a logged in user, when I go to the `/topics` page, then I can view, search, and sort through all topics.
-[ ] As a teacher, when I go to `/teachers/:id/topics`, then I can view, delete, or navigate to editing my topics.
-[ ] As a teacher, when I go to `/topics/new`, then I can create a new topic.
-[ ] As a user, when I go to `/topics` and I click `Join Discussion`, then I can join a discussion and start posting.
-[ ] As a user, when I visit `/topics` and click on the title link for a topic, I am taken to that discussion where I will also have the option to join the discussion or not.
-[ ] As a user, when I go to `topic/:id` and I have joined this discussion, I can see all posts and comments in that topic, create new posts or comments.
-[ ] As a user, when I go to `topic/:id` and I have joined this discussion, I can see all posts and comments in that topic, edit my posts or comments.
-[ ] As a user, when I go to `topic/:id` and I have joined this discussion, I can see all posts and comments in that topic, delete my posts or comments.
+[] As a logged in user, when I go to the `/topics` page, then I can view, search, and sort through all topics.
+[] As a teacher, when I go to `/teachers/:id/topics`, then I can view, delete, or navigate to editing my topics.
+[] As a teacher, when I go to `/topics/new`, then I can create a new topic.
+[] As a user, when I go to `/topics` and I click `Join Discussion`, then I can join a discussion and start posting.
+[] As a user, when I visit `/topics` and click on the title link for a topic, I am taken to that discussion where I will also have the option to join the discussion or not.
+[] As a user, when I go to `topic/:id` and I have joined this discussion, I can see all posts and comments in that topic, create new posts or comments.
+[] As a user, when I go to `topic/:id` and I have joined this discussion, I can see all posts and comments in that topic, edit my posts or comments.
+[] As a user, when I go to `topic/:id` and I have joined this discussion, I can see all posts and comments in that topic, delete my posts or comments.
 
 
 ### Comments
