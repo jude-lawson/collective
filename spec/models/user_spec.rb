@@ -8,4 +8,11 @@ RSpec.describe User do
     it { should validate_presence_of(:password) }
     it { should validate_presence_of(:is_teacher) }
   end
+
+  describe 'Relationships' do
+    it { should have_many(:posts) }
+    it { should have_many(:comments) }
+    it { should have_many(:user_topics) }
+    it { should have_many(:topics) }
+  end
 end
