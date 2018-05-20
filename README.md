@@ -73,7 +73,7 @@ Teachers setup classes and students can add themselves. Teachers can also add id
 
 #### Topic Pages (Includes functionality for Posts and Comments)
 - [ ] As a logged in user, when I go to the `/topics` page, then I can view, search, and sort through all topics.
-- [ ] As a teacher, when I go to `/teachers/:id/topics`, then I can view, delete, or navigate to editing my topics.
+- [ ] As a user, when I go to `/teachers/:id/topics`, then I can delete or navigate to editing any topics I've created.
 - [ ] As a teacher, when I go to `/topics/new`, then I can create a new topic.
 - [ ] As a user, when I go to `/topics` and I click `Join Discussion`, then I can join a discussion and start posting.
 - [ ] As a user, when I visit `/topics` and click on the title link for a topic, I am taken to that discussion where I will also have the option to join the discussion or not.
