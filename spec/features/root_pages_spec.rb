@@ -11,5 +11,22 @@ RSpec.describe 'Root Page' do
         expect(page).to have_content(@welcome_message)
       end
     end
+
+    describe 'A user or visitor is not logged in and visits the root page' do
+      it 'they should see a Log In button' do
+        visit root_path
+
+        expect(page).to have_button(@log_in)
+        expect(page).to have_button(@sign_up)
+      end
+    end
+
+    describe 'A logged in user visits the root page' do
+      xit 'they should be redirected to the topics page' do
+        visit root_path
+
+        expect(page).to have_current_path(topics_path)
+      end
+    end
   end
 end
