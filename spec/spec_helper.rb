@@ -38,13 +38,20 @@ RSpec.configure do |config|
                           email: 'tdoctor@tardis.com', password: 'CrimsonElevenDelightPetrichor',
                           is_teacher: true)
 
-    @user1 = User.create!(first_name: 'Rory', last_name: 'Williams',
+    @user2 = User.create!(first_name: 'Rory', last_name: 'Williams',
                           email: 'rwilliams@pandorica.com', password: '@my',
                           is_teacher: false)
 
-    @user1 = User.create!(first_name: 'Amy', last_name: 'Pond',
+    @user3 = User.create!(first_name: 'Amy', last_name: 'Pond',
                           email: 'apond@pandorica.com', password: 'R@ggedyMan',
                           is_teacher: false)
+      def log_the_doctor_in
+        visit login_path
+
+        fill_in :email, with: @user1.email
+        fill_in :password, with: @user1.password
+        click_button 'Log In'
+      end
   end
 =begin
   # Seed global randomization in this process using the `--seed` CLI option.

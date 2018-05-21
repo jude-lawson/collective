@@ -18,6 +18,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def index
+    # require 'pry';binding.pry
+    if current_user
+      @users = User.all
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def user_params

@@ -10,20 +10,19 @@ Teachers setup classes and students can add themselves. Teachers can also add id
 
 ### Users
 - [X] Describes a student and/or a teacher
-- [ ] Attributes
+- [X] Attributes
   - [X] User should have a first_name.
   - [X] User should have a last_name.
   - [X] User should have a email.
   - [X] User should have a password.
-    - [ ] Password should be secure
+    - [X] Password should be secure
   - [X] User should have an is_teacher status.
 - [X] If a user is not a teacher (admin), they are automatically a student, but never not a student.
 
 
 ### Students
-- [ ] Students sign up for a profile.
+- [X] Students sign up for a profile.
 - [ ] Student can join topics.
-- [ ] Students can join classes by invitation from their teacher (extension work).
 - [ ] Students are able to post any topic.
 - [ ] Students can create topics.
 - [ ] Students can gain achievement badges based on upvotes.
@@ -65,8 +64,8 @@ Teachers setup classes and students can add themselves. Teachers can also add id
 ## User Stories
 
 #### User Pages (Student & Teachers)
-- [ ] As a visitor, when I visit `/` and click `Sign Up`, I am able to create a profile (student by default).
-- [ ] As a user when I go to  `/users/:id`, I can view, update, and delete my profile. (extension would be to alias that url)
+- [X] As a visitor, when I visit `/` and click `Sign Up`, I am able to create a profile (student by default).
+- [X] As a user when I go to  `/users/:id`, I can view, update, and delete my profile.
 - [ ] As a user or visitor when I go to `/users`, I can view all users.
 - [ ] As a user or visitor when I go to `/users` and click on the name of a user I am taken to `/users/:id` and I can see all of their posts. 
 - [ ] As a user or visitor, when I go  to `/topics` I can view all topics.
