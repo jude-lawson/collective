@@ -5,7 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :email
       t.string :password
-      t.boolean :is_teacher
+      t.boolean :is_teacher, default: false
+
+      t.timestamps
     end
   end
 end
