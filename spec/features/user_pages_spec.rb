@@ -71,15 +71,8 @@ RSpec.describe 'User Pages' do
   context '/users' do
     describe 'A logged in user visits the page for all users' do
       it 'they should see a list of all registered users' do
-        # log_the_doctor_in
-        visit login_path
+        log_the_doctor_in
 
-        fill_in :email, with: @user1.email
-        fill_in :password, with: @user1.password
-        click_button 'Log In'
-        # At topics path here
-
-        # save_and_open_page
         visit users_path
         expect(page).to have_current_path(users_path)
         expect(page).to have_content(@user1.first_name)
@@ -88,6 +81,15 @@ RSpec.describe 'User Pages' do
         expect(page).to have_content(@user2.last_name)
         expect(page).to have_content(@user3.first_name)
         expect(page).to have_content(@user3.last_name)
+      end
+
+      it 'clicking on a user\'s name should take them to a list of their topics' do
+        log_the_doctor_in
+        visit users_path
+        click_link "#{@user3.first_name} #{@user3.last_name}"
+
+        expect(page).to have_current_path(user_path(@user3))
+        expect(page).to have_content('Post')
       end
     end
 

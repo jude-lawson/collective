@@ -66,8 +66,8 @@ Teachers setup classes and students can add themselves. Teachers can also add id
 #### User Pages (Student & Teachers)
 - [X] As a visitor, when I visit `/` and click `Sign Up`, I am able to create a profile (student by default).
 - [X] As a user when I go to  `/users/:id`, I can view, update, and delete my profile.
-- [ ] As a user or visitor when I go to `/users`, I can view all users.
-- [ ] As a user or visitor when I go to `/users` and click on the name of a user I am taken to `/users/:id` and I can see all of their posts. 
+- [X] As a user when I go to `/users`, I can view all users. As a visitor, I am redirected to the root page.
+- [ ] As a user when I go to `/users` and click on the name of a user I am taken to `/users/:id` and I can see all of their posts. 
 - [ ] As a user or visitor, when I go  to `/topics` I can view all topics.
 - [ ] As a user or visitor, when I go  to `/topics` and I click on the title of a topic, I am taken to that discussion with the option to either `Join Discussion` or `Sign Up`.
 

@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   resources :users, only: [:new, :create, :show, :index]
-  resources :topics, only: [:index]
+  resources :topics, only: [:index, :show]
 end

@@ -45,13 +45,17 @@ RSpec.configure do |config|
     @user3 = User.create!(first_name: 'Amy', last_name: 'Pond',
                           email: 'apond@pandorica.com', password: 'R@ggedyMan',
                           is_teacher: false)
-      def log_the_doctor_in
-        visit login_path
+    @topic1 = @user1.topics.create!(title: 'On Time and Relativity')
+    @post1 = @user3.posts.create!(title: 'What happens if someone gets erased from history?', body: 'If someone gets erased from all of time, and I think about them alot, will they come back', topic_id: @topic1.id)
+    @comment1 = @post1.comments.create!(body: 'Yes, that\'s possible', user_id: @user1.id)
 
-        fill_in :email, with: @user1.email
-        fill_in :password, with: @user1.password
-        click_button 'Log In'
-      end
+    def log_the_doctor_in
+      visit login_path
+
+      fill_in :email, with: @user1.email
+      fill_in :password, with: @user1.password
+      click_button 'Log In'
+    end
   end
 =begin
   # Seed global randomization in this process using the `--seed` CLI option.
