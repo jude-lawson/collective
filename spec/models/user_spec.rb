@@ -6,7 +6,7 @@ RSpec.describe User do
     it { should validate_presence_of(:last_name) }
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
-    it { should validate_presence_of(:is_teacher) }
+    it { should validate_inclusion_of(:is_teacher).in_array([true, false]) }
   end
 
   describe 'Relationships' do
