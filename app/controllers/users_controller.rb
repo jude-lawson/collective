@@ -4,8 +4,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    new_user = User.create!(user_params)
-    redirect_to user_path(new_user)
+    @user = User.new(user_params)
+    if @user.save 
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      # Need a flash message here, test first 
+      render :new
+    end
   end
 
   def show

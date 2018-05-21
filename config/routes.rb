@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'root#index'
-  get 'login', to: 'session#portal'
-  post 'login', to: 'user#login'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
   resources :users, only: [:new, :create, :show]
   resources :topics, only: [:index]
 end
