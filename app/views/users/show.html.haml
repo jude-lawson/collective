@@ -1,0 +1,6 @@
+%h1= "#{@user.first_name} #{@user.last_name}"
+%h3= @user.email
+-if @user.is_teacher
+  %p Teacher
+- else
+  %p Student
