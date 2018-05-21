@@ -9,14 +9,15 @@ Posts would be persisted for a topic and stored for future viewing. Every post c
 Teachers setup classes and students can add themselves. Teachers can also add ideas and topic posts, just like students.
 
 ### Users
-- [ ] Describes a student and/or a teacher
+- [X] Describes a student and/or a teacher
 - [ ] Attributes
-  - [ ] User should have a first_name.
-  - [ ] User should have a last_name.
-  - [ ] User should have a email.
-  - [ ] User should have a password.
-  - [ ] User should have an is_teacher status.
-- [ ] If a user is not a teacher (admin), they are automatically a student, but never not a student.
+  - [X] User should have a first_name.
+  - [X] User should have a last_name.
+  - [X] User should have a email.
+  - [X] User should have a password.
+    - [ ] Password should be secure
+  - [X] User should have an is_teacher status.
+- [X] If a user is not a teacher (admin), they are automatically a student, but never not a student.
 
 
 ### Students

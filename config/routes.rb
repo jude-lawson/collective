@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get 'root', to: 'root#index'
+  root to: 'root#index'
+  get 'login', to: 'root#login'
   resources :users, only: [:new, :create, :show]
+  resources :topics, only: [:index]
 end
