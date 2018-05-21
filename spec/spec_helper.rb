@@ -31,6 +31,20 @@ RSpec.configure do |config|
     @join = 'Join Discussion'
     @log_in = 'Log In'
     @log_out = 'Log out'
+
+    # Set up a user or two
+    # Admin
+    @user1 = User.create!(first_name: 'The', last_name: 'Doctor',
+                          email: 'tdoctor@tardis.com', password: 'CrimsonElevenDelightPetrichor',
+                          is_teacher: true)
+
+    @user1 = User.create!(first_name: 'Rory', last_name: 'Williams',
+                          email: 'rwilliams@pandorica.com', password: '@my',
+                          is_teacher: false)
+
+    @user1 = User.create!(first_name: 'Amy', last_name: 'Pond',
+                          email: 'apond@pandorica.com', password: 'R@ggedyMan',
+                          is_teacher: false)
   end
 =begin
   # Seed global randomization in this process using the `--seed` CLI option.

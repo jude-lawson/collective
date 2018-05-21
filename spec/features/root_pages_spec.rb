@@ -39,6 +39,12 @@ RSpec.describe 'Root Page' do
 
     describe 'A logged in user visits the root page' do
       it 'they should be redirected to the topics page' do
+        visit login_path
+
+        fill_in 'email', with: @user1.email
+        fill_in 'password', with: @user1.password
+        click_button('Log In')
+
         visit root_path
 
         expect(page).to have_current_path(topics_path)
