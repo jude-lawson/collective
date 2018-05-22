@@ -1,0 +1,14 @@
+%h1= "#{@user.first_name} #{@user.last_name}"
+-if current_user == @user
+  %h3= @user.email
+
+-if @user.teacher?
+  %p Teacher
+- else
+  %p Student
+
+%h3 Posts
+-@user_posts.each do |user_post|
+  %h3.post-title= user_post.title
+  %h3.post-body= user_post.body
+

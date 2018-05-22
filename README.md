@@ -9,20 +9,20 @@ Posts would be persisted for a topic and stored for future viewing. Every post c
 Teachers setup classes and students can add themselves. Teachers can also add ideas and topic posts, just like students.
 
 ### Users
-- [ ] Describes a student and/or a teacher
-- [ ] Attributes
-  - [ ] User should have a first_name.
-  - [ ] User should have a last_name.
-  - [ ] User should have a email.
-  - [ ] User should have a password.
-  - [ ] User should have an is_teacher status.
-- [ ] If a user is not a teacher (admin), they are automatically a student, but never not a student.
+- [X] Describes a student and/or a teacher
+- [X] Attributes
+  - [X] User should have a first_name.
+  - [X] User should have a last_name.
+  - [X] User should have a email.
+  - [X] User should have a password.
+    - [X] Password should be secure
+  - [X] User should have an is_teacher status.
+- [X] If a user is not a teacher (admin), they are automatically a student, but never not a student.
 
 
 ### Students
-- [ ] Students sign up for a profile.
+- [X] Students sign up for a profile.
 - [ ] Student can join topics.
-- [ ] Students can join classes by invitation from their teacher (extension work).
 - [ ] Students are able to post any topic.
 - [ ] Students can create topics.
 - [ ] Students can gain achievement badges based on upvotes.
@@ -64,16 +64,16 @@ Teachers setup classes and students can add themselves. Teachers can also add id
 ## User Stories
 
 #### User Pages (Student & Teachers)
-- [ ] As a visitor, when I visit `/` and click `Sign Up`, I am able to create a profile (student by default).
-- [ ] As a user when I go to  `/users/:id`, I can view, update, and delete my profile. (extension would be to alias that url)
-- [ ] As a user or visitor when I go to `/users`, I can view all users.
-- [ ] As a user or visitor when I go to `/users` and click on the name of a user I am taken to `/users/:id` and I can see all of their posts. 
+- [X] As a visitor, when I visit `/` and click `Sign Up`, I am able to create a profile (student by default).
+- [X] As a user when I go to  `/users/:id`, I can view, update, and delete my profile.
+- [X] As a user when I go to `/users`, I can view all users. As a visitor, I am redirected to the root page.
+- [ ] As a user when I go to `/users` and click on the name of a user I am taken to `/users/:id` and I can see all of their posts. 
 - [ ] As a user or visitor, when I go  to `/topics` I can view all topics.
 - [ ] As a user or visitor, when I go  to `/topics` and I click on the title of a topic, I am taken to that discussion with the option to either `Join Discussion` or `Sign Up`.
 
 #### Topic Pages (Includes functionality for Posts and Comments)
 - [ ] As a logged in user, when I go to the `/topics` page, then I can view, search, and sort through all topics.
-- [ ] As a teacher, when I go to `/teachers/:id/topics`, then I can view, delete, or navigate to editing my topics.
+- [ ] As a user, when I go to `/teachers/:id/topics`, then I can delete or navigate to editing any topics I've created.
 - [ ] As a teacher, when I go to `/topics/new`, then I can create a new topic.
 - [ ] As a user, when I go to `/topics` and I click `Join Discussion`, then I can join a discussion and start posting.
 - [ ] As a user, when I visit `/topics` and click on the title link for a topic, I am taken to that discussion where I will also have the option to join the discussion or not.

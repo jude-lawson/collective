@@ -1,0 +1,4 @@
+%h1 All Users of Collective
+
+-@users.each do |user|
+  %a.user-name{href: user_path(user)} "#{user.first_name} #{user.last_name}"
