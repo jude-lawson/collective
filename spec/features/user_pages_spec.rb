@@ -105,6 +105,8 @@ RSpec.describe 'User Pages' do
         expect(page).to have_content('Student')
         expect(page).to have_content(@user3.posts.first.title)
         expect(page).to have_content(@user3.posts.first.body)
+        expect(page).to_not have_content(@user2.posts.first.body)
+        expect(page).to_not have_content(@user2.posts.first.title)
       end
     end
   end

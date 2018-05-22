@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   resources :users, only: [:new, :create, :show, :index]
   resources :topics, only: [:index, :show]
+
+  namespace :teacher do
+    resources :topics, only: [:new, :create]
+  end
 end
