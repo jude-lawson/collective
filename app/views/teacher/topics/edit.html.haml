@@ -1,0 +1,7 @@
+%h1= "Edit #{@topic.title}"
+
+=form_for [:teacher, @topic] do |f|
+  =f.label :title
+  =f.text_field :title
+
+  =f.submit
