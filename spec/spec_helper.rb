@@ -36,15 +36,15 @@ RSpec.configure do |config|
     # Admin
     @user1 = User.create!(first_name: 'The', last_name: 'Doctor',
                           email: 'tdoctor@tardis.com', password: 'CrimsonElevenDelightPetrichor',
-                          is_teacher: true)
+                          role: 1)
 
     @user2 = User.create!(first_name: 'Rory', last_name: 'Williams',
                           email: 'rwilliams@pandorica.com', password: '@my',
-                          is_teacher: false)
+                          role: 0)
 
     @user3 = User.create!(first_name: 'Amy', last_name: 'Pond',
                           email: 'apond@pandorica.com', password: 'R@ggedyMan',
-                          is_teacher: false)
+                          role: 0)
     @topic1 = @user1.topics.create!(title: 'On Time and Relativity')
     @post1 = @user3.posts.create!(title: 'What happens if someone gets erased from history?', body: 'If someone gets erased from all of time, and I think about them alot, will they come back', topic_id: @topic1.id)
     @comment1 = @post1.comments.create!(body: 'Yes, that\'s possible', user_id: @user1.id)

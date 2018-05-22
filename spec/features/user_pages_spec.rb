@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'User Pages' do
   context '/users/new' do
     describe 'A non-registered user visits the new user page' do
-      it 'they should be able to fill out a form to create their profile (not a teacher)' do
+      it 'they should be able to fill out a form to create their profile' do
         visit new_user_path
 
         first_name = 'Bill'
@@ -26,28 +26,6 @@ RSpec.describe 'User Pages' do
         expect(page).to have_content('Student')
       end
 
-      it 'they should be able to fill out a form to create their profile (is a teacher)' do
-        visit new_user_path
-
-        first_name = 'River'
-        last_name = 'Song'
-        email = 'rsong@stormcage.com'
-        password = 'MelodyPond'
-
-        fill_in 'user[first_name]', with: first_name
-        fill_in 'user[last_name]', with: last_name
-        fill_in 'user[email]', with: email
-        fill_in 'user[password]', with: password
-        check('I\'m a teacher!')
-        click_button 'Create User'
-
-        expect(page).to have_current_path(user_path(User.last))
-        expect(page).to have_content(first_name)
-        expect(page).to have_content(last_name)
-        expect(page).to have_content(email)
-        expect(page).to have_content('Teacher')
-      end
-
       it 'they should not be able to create an account with the same email address' do
         visit new_user_path
 
@@ -55,7 +33,6 @@ RSpec.describe 'User Pages' do
         fill_in 'user[last_name]', with: @user1.last_name
         fill_in 'user[email]', with: @user1.email
         fill_in 'user[password]', with: @user1.password
-        check('I\'m a teacher!')
         click_button 'Create User'
 
         # Expecting to be redirected to POST path, but render form
@@ -89,7 +66,7 @@ RSpec.describe 'User Pages' do
         click_link "#{@user3.first_name} #{@user3.last_name}"
 
         expect(page).to have_current_path(user_path(@user3))
-        expect(page).to have_content('Post')
+        expect(page).to have_content('Posts')
       end
     end
 
@@ -107,12 +84,27 @@ RSpec.describe 'User Pages' do
   context '/users/:id' do
     describe 'A user visits their profile page' do
       it 'they should see their profile information' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
         visit user_path(@user1)
 
         expect(page).to have_content(@user1.first_name)
         expect(page).to have_content(@user1.last_name)
         expect(page).to have_content(@user1.email)
         expect(page).to have_content('Teacher')
+      end
+    end
+
+    describe 'A non-logeed in user visits a user\'s page' do
+      it 'they should only see user\'s name and posts' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+        visit user_path(@user3)
+
+        expect(page).to have_content(@user3.first_name)
+        expect(page).to have_content(@user3.last_name)
+        expect(page).to_not have_content(@user3.email)
+        expect(page).to have_content('Student')
+        expect(page).to have_content(@user3.posts.first.title)
+        expect(page).to have_content(@user3.posts.first.body)
       end
     end
   end

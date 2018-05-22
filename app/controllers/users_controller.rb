@@ -16,10 +16,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_posts = @user.posts
   end
 
   def index
-    # require 'pry';binding.pry
     if current_user
       @users = User.all
     else
@@ -30,6 +30,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :is_teacher)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :role)
   end
 end
