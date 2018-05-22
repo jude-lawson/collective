@@ -13,7 +13,7 @@ RSpec.describe User do
   describe 'Relationships' do
     it { should have_many(:posts) }
     it { should have_many(:comments) }
-    it { should have_many(:user_topics) }
+    it { should have_many(:topic_contributions) }
     it { should have_many(:topics) }
   end
 

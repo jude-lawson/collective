@@ -9,6 +9,14 @@ RSpec.describe 'Topic Pages' do
         visit topics_path
 
         expect(page).to have_link(@topic1.title)
+        within('#topic-' + @topic1.id.to_s) do
+          expect(page).to have_link('Edit')
+        end
+
+        expect(page).to have_link(@topic2.title)
+        within('#topic-' + @topic2.id.to_s) do
+          expect(page).to_not have_link('Edit')
+        end
       end
     end
 
@@ -56,6 +64,13 @@ RSpec.describe 'Topic Pages' do
     end
   end
 
+  context '/topics/:id/edit' do
+    describe 'A teacher visits the topic edit page' do
+      it 'they can edit the topic' do
+      end
+    end
+  end
+
   context '/topics/:id' do
     describe 'A logged in teacher visits a topic page' do
       it 'they should see all of the posts for that topic' do
@@ -64,8 +79,15 @@ RSpec.describe 'Topic Pages' do
 
         expect(page).to have_content(@post1.title)
         expect(page).to have_content(@post1.body)
+        # within('#post-' + @post1.id.to_s) do
+        #   expect(page).to have_link('Edit')
+        # end
+
         expect(page).to have_content(@post2.title)
         expect(page).to have_content(@post2.body)
+        # within('#post-' + @post2.id.to_s) do
+        #   expect(page).to have_link('Edit')
+        # end
       end
     end
 

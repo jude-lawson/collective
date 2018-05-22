@@ -4,7 +4,7 @@ class Teacher::TopicsController < Teacher::BaseController
   end
 
   def create
-    @topic = Topic.create!(topic_params)
+    @topic = current_user.topics.create!(topic_params)
     redirect_to topic_path(@topic)
   end
 

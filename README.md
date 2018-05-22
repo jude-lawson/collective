@@ -22,23 +22,19 @@ Teachers setup classes and students can add themselves. Teachers can also add id
 
 ### Students
 - [X] Students sign up for a profile.
-- [ ] Student can join topics.
 - [ ] Students are able to post any topic.
-- [ ] Students can create topics.
-- [ ] Students can gain achievement badges based on upvotes.
-- [ ] Students can upvote other students' submissions.
+- [ ] (?) Students can gain achievement badges based on upvotes.
+- [ ] (?) Students can upvote other students' submissions.
 
 ### Teachers
-- [ ] Teachers sign up for a profile.
-- [ ] Teachers can set up classes (extension work).
-- [ ] Teachers can create topics for discussion.
-- [ ] Teachers can join topics.
+- [X] Teachers sign up for a profile and are currently given teacher status by owner (me).
+- [X] Teachers can create topics for discussion.
 - [ ] Teachers can post in any topics they've created.
 - [ ] Teachers can remove students from a topic (extension work).
 - [ ] Teachers can add a level of verification/certification to a post, highlighting it.
 
 ### Posts
-- [ ] Posts belong to a topic in a class and also to the user that posted them.
+- [ ] Posts belong to a topic and also to the user that posted them.
 - [ ] Posts can be commented on (thread stlye)
 - [ ] Posts can be created by students and teachers.
 - [ ] Posts can be udpated by the student/teacher that created them.

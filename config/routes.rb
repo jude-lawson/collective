@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :topics, only: [:index, :show]
 
   namespace :teacher do
-    resources :topics, only: [:new, :create]
+    resources :topics, only: [:new, :create, :edit, :update]
   end
 end
