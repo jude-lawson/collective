@@ -15,7 +15,6 @@ class Teacher::TopicsController < Teacher::BaseController
   def update
     @topic = Topic.find(params[:id])
     @topic.update(topic_params)
-    # require 'pry';binding.pry
     redirect_to topic_path(@topic)
   end
 

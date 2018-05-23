@@ -152,5 +152,7 @@ RSpec.describe 'Topic Pages' do
         expect(page).to have_content(@post2.body)
       end
     end
+
+    
   end
 end
