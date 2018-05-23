@@ -78,6 +78,6 @@ RSpec.describe 'Post Pages' do
     describe 'A visitor tries to edit a post' do
       it 'they should see a 4040 page' do
       end
-    end
+    end 
   end
 end
