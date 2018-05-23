@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :index]
   resources :topics, only: [:index, :show]
 
+  resources :topics do
+    resources :posts, only: [:new, :create, :edit, :update]
+  end
+
   namespace :teacher do
     resources :topics, only: [:new, :create, :edit, :update]
   end

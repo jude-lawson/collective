@@ -1,5 +1,8 @@
 %h1= @topic.title
 
 -@topic_posts.each do |post|
-  %h3.post-title= post.title
-  %p.post-body= post.body
+  %div{id: "post-#{post.id}"}
+    %h3.post-title= post.title
+    %p.post-body= post.body
+    -if current_user && post.user_id == current_user.id
+      =link_to 'Edit', edit_topic_post_path(@topic, post)
