@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: collective_production
+  database: ENV["DATABASE_URL"]
   username: collective
   password: <%= ENV['COLLECTIVE_DATABASE_PASSWORD'] %>
