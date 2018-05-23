@@ -118,15 +118,22 @@ RSpec.describe 'Topic Pages' do
 
         expect(page).to have_content(@post1.title)
         expect(page).to have_content(@post1.body)
-        # within('#post-' + @post1.id.to_s) do
-        #   expect(page).to have_link('Edit')
-        # end
-
+        
         expect(page).to have_content(@post2.title)
         expect(page).to have_content(@post2.body)
-        # within('#post-' + @post2.id.to_s) do
-        #   expect(page).to have_link('Edit')
-        # end
+      end
+      
+      it 'a user should only have links to edit their posts' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+        visit topic_path(@topic1)
+        
+        within('#post-' + @post2.id.to_s) do
+          expect(page).to have_link('Edit')
+        end
+
+        within('#post-' + @post1.id.to_s) do
+          expect(page).to_not have_link('Edit')
+        end
       end
     end
 
