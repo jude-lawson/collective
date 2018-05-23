@@ -6,3 +6,4 @@
     %p.post-body= post.body
     -if current_user && post.user_id == current_user.id
       =link_to 'Edit', edit_topic_post_path(@topic, post)
+      =link_to 'Delete', topic_post_path(@topic, post), method: :delete

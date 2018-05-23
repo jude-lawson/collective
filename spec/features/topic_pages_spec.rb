@@ -134,23 +134,25 @@ RSpec.describe 'Topic Pages' do
         within('#post-' + @post1.id.to_s) do
           expect(page).to_not have_link('Edit')
         end
+      end
 
-        it 'they should only see delete links for their posts and be able to delete their posts' do
-          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+      it 'they should only see delete links for their posts and be able to delete their posts' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
 
-          within('#post-' + @post2.id.to_s) do
-            expect(page).to_not have_link('Delete')
-          end
+        visit topic_path(@topic1)
 
-          within('#post-' + @post3.id.to_s) do
-            expect(page).to have_link('Delete')
-            click_link 'Delete'
-          end
-          
-          expect(page).to have_current_path(topic_path(@topic1))
-          expect(page).to_not have_content(@post3.title)
-          expect(page).to_not have_content(@post3.body)
+        within('#post-' + @post2.id.to_s) do
+          expect(page).to_not have_link('Delete')
         end
+
+        within('#post-' + @post3.id.to_s) do
+          expect(page).to have_link('Delete')
+          click_link 'Delete'
+        end
+        
+        expect(page).to have_current_path(topic_path(@topic1))
+        expect(page).to_not have_content(@post3.title)
+        expect(page).to_not have_content(@post3.body)
       end
     end
 
@@ -167,6 +169,8 @@ RSpec.describe 'Topic Pages' do
 
       it 'they should only see delete links for their posts and be able to delete their posts' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+
+        visit topic_path(@topic1)
 
         within('#post-' + @post1.id.to_s) do
           expect(page).to_not have_link('Delete')

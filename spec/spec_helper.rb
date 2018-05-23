@@ -63,6 +63,14 @@ RSpec.configure do |config|
       fill_in :password, with: @user1.password
       click_button 'Log In'
     end
+
+    def log_the_rory_in
+      visit login_path
+
+      fill_in :email, with: @user2.email
+      fill_in :password, with: @user2.password
+      click_button 'Log In'
+    end
   end
 =begin
   # Seed global randomization in this process using the `--seed` CLI option.
