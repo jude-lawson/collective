@@ -11,4 +11,10 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    # require 'pry';binding.pry
+    redirect_to root_path
+  end
 end
