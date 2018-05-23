@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_topic, only: [:new, :create, :edit, :update]
-  before_action :set_post, only: [:edit, :update]
+  before_action :set_topic, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   def new
     if current_user
@@ -20,6 +20,11 @@ class PostsController < ApplicationController
 
   def update
     @post.update!(post_params)
+    redirect_to topic_path(@topic)
+  end
+
+  def destroy
+    @post.destroy
     redirect_to topic_path(@topic)
   end
 

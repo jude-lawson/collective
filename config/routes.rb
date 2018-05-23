@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   resources :users, only: [:new, :create, :show, :index]
-  resources :topics, only: [:index, :show]
+  # resources :topics, only: [:index, :show]
 
   resources :topics do
-    resources :posts, only: [:new, :create, :edit, :update]
+    resources :posts, only: [:new, :create, :edit, :update, :destroy]
   end
 
   namespace :teacher do
