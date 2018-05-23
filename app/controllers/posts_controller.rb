@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  before_action :set_topic, only: [:new, :create, :edit, :update]
+  before_action :set_post, only: [:edit, :update]
+
   def new
     if current_user
-      @topic = Topic.find(params[:topic_id])
       @post = Post.new
     else
       render file: '/public/404'
@@ -9,26 +11,29 @@ class PostsController < ApplicationController
   end
 
   def create
-    topic = Topic.find(params[:topic_id])
-    topic.posts.create!(title: post_params['title'], body: post_params['body'], user_id: current_user.id)
-    redirect_to topic_path(topic)
+    @topic.posts.create!(title: post_params['title'], body: post_params['body'], user_id: current_user.id)
+    redirect_to topic_path(@topic)
   end
 
   def edit
-    @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
   end
 
   def update
-    topic = Topic.find(params[:topic_id])
-    post = Post.find(params[:id])
-    post.update!(post_params)
-    redirect_to topic_path(topic)
+    @post.update!(post_params)
+    redirect_to topic_path(@topic)
   end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :body)
+  end
+
+  def set_topic
+    @topic = Topic.find(params[:topic_id])
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
