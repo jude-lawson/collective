@@ -16,6 +16,9 @@ class PostsController < ApplicationController
   end
 
   def edit
+    unless current_user
+      render file: '/public/404'
+    end
   end
 
   def update
