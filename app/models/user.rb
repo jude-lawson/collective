@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  has_many :user_topics
-  has_many :topics, through: :user_topics
+  has_many :topic_contributions
+  has_many :topics
   has_many :posts
   has_many :comments
 end

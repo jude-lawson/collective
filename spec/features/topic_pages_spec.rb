@@ -9,6 +9,14 @@ RSpec.describe 'Topic Pages' do
         visit topics_path
 
         expect(page).to have_link(@topic1.title)
+        within('#topic-' + @topic1.id.to_s) do
+          expect(page).to have_link('Edit')
+        end
+
+        expect(page).to have_link(@topic2.title)
+        within('#topic-' + @topic2.id.to_s) do
+          expect(page).to_not have_link('Edit')
+        end
       end
     end
 
@@ -56,6 +64,52 @@ RSpec.describe 'Topic Pages' do
     end
   end
 
+  context '/topics/:id/edit' do
+    describe 'A teacher visits the topic edit page' do
+      it 'they can edit the topic' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+        
+        visit edit_teacher_topic_path(@topic1)
+
+        edited_title = 'An Edited Title'
+
+        fill_in :topic_title, with: edited_title
+        click_button 'Update Topic'
+
+        expect(page).to have_current_path(topic_path(@topic1))
+        expect(page).to have_content(edited_title)
+      end
+    end
+
+    describe 'A teacher tries to edit another teacher\'s topic' do
+      it 'they should seea 404 page' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+
+        visit edit_teacher_topic_path(@topic2)
+
+        expect(page).to have_content('The page you were looking for doesn\'t exist')
+      end
+    end
+
+    describe 'A student tries to edit a topic' do
+      it 'they should seea 404 page' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+
+        visit edit_teacher_topic_path(@topic2)
+
+        expect(page).to have_content('The page you were looking for doesn\'t exist')
+      end
+    end
+
+    describe 'A visitor tries to edit a topic' do
+      it 'they should seea 404 page' do
+        visit edit_teacher_topic_path(@topic2)
+
+        expect(page).to have_content('The page you were looking for doesn\'t exist')
+      end
+    end
+  end
+
   context '/topics/:id' do
     describe 'A logged in teacher visits a topic page' do
       it 'they should see all of the posts for that topic' do
@@ -64,8 +118,15 @@ RSpec.describe 'Topic Pages' do
 
         expect(page).to have_content(@post1.title)
         expect(page).to have_content(@post1.body)
+        # within('#post-' + @post1.id.to_s) do
+        #   expect(page).to have_link('Edit')
+        # end
+
         expect(page).to have_content(@post2.title)
         expect(page).to have_content(@post2.body)
+        # within('#post-' + @post2.id.to_s) do
+        #   expect(page).to have_link('Edit')
+        # end
       end
     end
 
@@ -91,5 +152,7 @@ RSpec.describe 'Topic Pages' do
         expect(page).to have_content(@post2.body)
       end
     end
+
+    
   end
 end

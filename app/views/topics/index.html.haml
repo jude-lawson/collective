@@ -1,4 +1,7 @@
 %h1 All Topics
 
 - @topics.each do |topic|
-  =link_to topic.title, topic_path(topic)
+  %div{id: "topic-#{topic.id}"}
+    =link_to topic.title, topic_path(topic)
+    -if current_teacher? && current_user == topic.user
+      =link_to 'Edit', edit_teacher_topic_path(topic)

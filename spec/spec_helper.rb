@@ -45,7 +45,12 @@ RSpec.configure do |config|
     @user3 = User.create!(first_name: 'Amy', last_name: 'Pond',
                           email: 'apond@pandorica.com', password: 'R@ggedyMan',
                           role: 0)
+
+    @user4 = User.create!(first_name: 'Jude', last_name: 'Dutton',
+                          email: 'notanemail@na.moc', password: 'IAmNotTellingYou!',
+                          role: 1)
     @topic1 = @user1.topics.create!(title: 'On Time and Relativity')
+    @topic2 = @user4.topics.create!(title: 'I Don\'t Know What I\'m Talking About')
     @post1 = @user3.posts.create!(title: 'What happens if someone gets erased from history?', body: 'If someone gets erased from all of time, and I think about them alot, will they come back', topic_id: @topic1.id)
     @post2 = @user2.posts.create!(title: 'Is time linear?', body: 'I don\'t really think so', topic_id: @topic1.id)
     @comment1 = @post1.comments.create!(body: 'Yes, that\'s possible', user_id: @user1.id)
