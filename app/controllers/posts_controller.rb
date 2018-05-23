@@ -14,6 +14,18 @@ class PostsController < ApplicationController
     redirect_to topic_path(topic)
   end
 
+  def edit
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    topic = Topic.find(params[:topic_id])
+    post = Post.find(params[:id])
+    post.update!(post_params)
+    redirect_to topic_path(topic)
+  end
+
   private
 
   def post_params
