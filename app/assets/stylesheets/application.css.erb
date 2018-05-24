@@ -42,6 +42,26 @@ header a {
   font-size: 24px;
 }
 
+header form[action="/logout"] {
+  display: inline;
+  margin-left: 20px;
+}
+
+header input[type="submit"] {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 24px;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+header input[type="submit"]:hover {
+  color: #8884FF;
+  background-color: transparent;
+}
+
 nav a {
   margin-left: 20px;
 }
@@ -75,13 +95,16 @@ main#homepage {
   display: flex;
   justify-content: space-around;
 }
-#homepage h1 {
+
+main#homepage h1 {
   font-size: 8rem;
   margin-top: 15%;
+  padding: 0;
 }
 
 .subtitle {
   font-size: 3rem;
+  text-align: center;
 }
 
 #button-container a {
@@ -97,19 +120,9 @@ main#homepage {
   transition: .2s ease-in-out;
 }
 
-/* #button-container a:hover {
-  color: #64ffda;
-  border-color: #64ffda;
-  transition: .2s ease-in-out;
-} */
-
 #button-container p {
   margin-top: 30px;
 }
-
-/* main {
-  background-color: #FEFEFE;
-} */
 
 main h1 {
   padding: 40px 0 0 40px;
@@ -118,14 +131,14 @@ main h1 {
 /* New Profile */
 
 
-#new-profile h1 {
+h1 {
   width: 400px;
   margin: 0 auto;
   text-align: center;
   padding-top: 80px;
 }
 
-#new-profile form {
+form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -136,7 +149,7 @@ main h1 {
   padding: 20px;
 }
 
-#new-profile form label {
+form label {
   align-self: flex-start;
   font-size: 18px;
   color: #FFF;
@@ -172,6 +185,7 @@ input[type="submit"] {
   padding: 12px;
   border-radius: .2em;
   align-self: flex-end;
+  margin: 0;
 }
 
 input[type="submit"]:hover {
