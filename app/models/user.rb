@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates_presence_of :last_name, require: true
   validates_presence_of :email, require: true
   validates_uniqueness_of :email
-  validates_presence_of :password, require: true
+  # validates_presence_of :password, require: true
   validates_presence_of :role
 
   enum role: [:student, :teacher]

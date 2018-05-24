@@ -26,6 +26,28 @@ RSpec.describe 'User Pages' do
         expect(page).to have_content('Student')
       end
 
+      # it 'they should not be able to create their profile without password' do
+      #   visit new_user_path
+
+      #   first_name = 'Bill'
+      #   last_name = 'Potts'
+      #   email = 'bpotts@everywhere.com'
+        
+      #   fill_in 'user[first_name]', with: first_name
+      #   fill_in 'user[last_name]', with: last_name
+      #   fill_in 'user[email]', with: email
+
+      #   # Will not select teacher
+      #   click_button 'Create User'
+
+      #   expect(page).to have_current_path(users_path)
+      #   expect(page).to have_content('Please fill out this field.')
+      #   expect(page).to_not have_content(first_name)
+      #   expect(page).to_not have_content(last_name)
+      #   expect(page).to_not have_content(last_name)
+      # end
+
+
       it 'they should not be able to create an account with the same email address' do
         visit new_user_path
 
@@ -37,6 +59,7 @@ RSpec.describe 'User Pages' do
 
         # Expecting to be redirected to POST path, but render form
         expect(page).to have_current_path(users_path)
+        expect(page).to have_content('Account could not be created. That email is already taken!')
         expect(page).to have_content('First name')
         expect(page).to have_content('Last name')
         expect(page).to have_content('Email')
@@ -110,4 +133,74 @@ RSpec.describe 'User Pages' do
       end
     end
   end
+
+  # context '/users/:id/edit' do
+  #   describe 'A visitor tries to edit a user' do
+  #     it 'they should see a 40r page' do
+  #       visit edit_user_path(@user1)
+
+  #       expect(page).to have_content('The page you were looking for doesn\'t exist')
+  #       expect(page).to_not have_content(@user1.email)
+  #       # expect(page).to_not have_content(@user1.first_name)
+  #       expect(page).to_not have_content(@user1.last_name)
+  #     end
+  #   end
+
+  #   describe 'A teacher visits an edit page' do
+  #     it 'they should be able to edit their profile' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+  #       visit edit_user_path(@user1)
+        
+  #       new_first_name = 'Not a'
+  #       new_last_name = 'Doctor'
+  #       new_email = 'notanemail.na.moc'
+        
+  #       # save_and_open_page
+  #       fill_in :user_first_name, with: new_first_name
+  #       fill_in :user_last_name, with: new_last_name
+  #       fill_in :user_email, with: new_email
+  #       click_button 'Update User'
+        
+  #       expect(page).to have_current_path(user_path(@user1))
+  #       expect(page).to have_content(@user1.first_name)
+  #       expect(page).to have_content(@user1.last_name)
+  #       expect(page).to have_content(@user1.email)
+  #     end
+      
+  #     it 'they should not be able to edit another profile' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+  #       visit edit_user_path(@user2)
+
+  #       expect(page).to have_content('The page you were looking for doesn\'t exist')
+  #     end
+  #   end
+
+  #   describe 'A student visits an edit page' do
+  #     it 'they should be able to edit their profile' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+  #       visit edit_user_path(@user2)
+        
+  #       new_first_name = 'Not a'
+  #       new_last_name = 'Doctor'
+  #       new_email = 'notanemail.na.moc'
+        
+  #       fill_in :user_first_name, with: new_first_name
+  #       fill_in :user_last_name, with: new_last_name
+  #       fill_in :user_email, with: new_email
+  #       click_button 'Update User'
+        
+  #       expect(page).to have_current_path(user_path(@user1))
+  #       expect(page).to have_content(@user1.first_name)
+  #       expect(page).to have_content(@user1.last_name)
+  #       expect(page).to have_content(@user1.email)
+  #     end
+      
+  #     it 'they should not be able to edit another profile' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+  #       visit edit_user_path(@user3)
+
+  #       expect(page).to have_content('The page you were looking for doesn\'t exist')
+  #     end
+  #   end
+  # end
 end
