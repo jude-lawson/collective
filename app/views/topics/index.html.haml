@@ -1,8 +1,14 @@
 %main#topics
-  %h1 All Topics
-
-  - @topics.each do |topic|
-    %div{id: "topic-#{topic.id}"}
-      =link_to topic.title, topic_path(topic)
-      -if current_teacher? && current_user == topic.user
-        =link_to 'Edit', edit_teacher_topic_path(topic)
+  
+  .list-container
+    .heading-btn-container
+      %h1 All Topics
+      -if current_teacher?
+        =link_to 'Create New Topic', new_teacher_topic_path(current_user)
+    - @topics.each do |topic|
+      %div{id: "topic-#{topic.id}", class: "list-element-container"}
+        =link_to topic.title, topic_path(topic), class: 'element'
+        -if current_teacher? && current_user == topic.user
+          .element-links
+            =link_to 'Edit', edit_teacher_topic_path(topic)
+            =link_to 'Delete', teacher_topic_path(topic), method: :delete

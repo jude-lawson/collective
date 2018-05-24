@@ -7,8 +7,9 @@
 - else
   %p Student
 
-%h3 Posts
--@user_posts.each do |user_post|
-  %h3.post-title= user_post.title
-  %h3.post-body= user_post.body
+.user-posts-container
+  %h3 Posts
+  -@user_posts.each do |user_post|
+    %h4.post-title= user_post.title
+    %h5.post-body= user_post.body
 

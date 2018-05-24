@@ -42,6 +42,27 @@ header a {
   font-size: 24px;
 }
 
+header form[action="/logout"] {
+  display: inline;
+  margin-left: 20px;
+  background-color: transparent;
+}
+
+header input[type="submit"] {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 24px;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+header input[type="submit"]:hover {
+  color: #8884FF;
+  background-color: transparent;
+}
+
 nav a {
   margin-left: 20px;
 }
@@ -55,6 +76,13 @@ a:hover {
 main {
   height: calc(100vh - 70px);
   background-color: #FEFEFE;
+}
+
+textarea {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 16px;
+  height: 250px;
 }
 
 /* Homepage */
@@ -75,13 +103,17 @@ main#homepage {
   display: flex;
   justify-content: space-around;
 }
-#homepage h1 {
+
+main#homepage h1 {
   font-size: 8rem;
   margin-top: 15%;
+  padding: 0;
+  width: auto;
 }
 
 .subtitle {
   font-size: 3rem;
+  text-align: center;
 }
 
 #button-container a {
@@ -97,19 +129,9 @@ main#homepage {
   transition: .2s ease-in-out;
 }
 
-/* #button-container a:hover {
-  color: #64ffda;
-  border-color: #64ffda;
-  transition: .2s ease-in-out;
-} */
-
 #button-container p {
   margin-top: 30px;
 }
-
-/* main {
-  background-color: #FEFEFE;
-} */
 
 main h1 {
   padding: 40px 0 0 40px;
@@ -118,14 +140,14 @@ main h1 {
 /* New Profile */
 
 
-#new-profile h1 {
+h1 {
   width: 400px;
   margin: 0 auto;
   text-align: center;
   padding-top: 80px;
 }
 
-#new-profile form {
+form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -136,7 +158,7 @@ main h1 {
   padding: 20px;
 }
 
-#new-profile form label {
+form label {
   align-self: flex-start;
   font-size: 18px;
   color: #FFF;
@@ -172,6 +194,7 @@ input[type="submit"] {
   padding: 12px;
   border-radius: .2em;
   align-self: flex-end;
+  margin: 0;
 }
 
 input[type="submit"]:hover {
@@ -179,4 +202,99 @@ input[type="submit"]:hover {
   background-color: #8884FF;
   border-color: #8884FF;
   color: #FFF;
+}
+
+/* Topics */
+
+#topics h1 {
+  margin: 0;
+  width: 200px;
+  padding: 0;
+}
+
+#topic-posts h1 {
+  margin: 0;
+  width: 200px;
+  padding: 0;
+}
+
+.heading-btn-container {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.heading-btn-container a {
+  text-decoration: none;
+  border: 1px solid #8884FF;
+  border-radius: .2em;
+  padding: 7px;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid #8884FF;
+  width: 50%;
+  height: calc(100vh - 70px);
+}
+
+.list-element-container {
+  border-top: 1px solid #8884FF;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-element-container:last-of-type {
+  border-top: 1px solid #8884FF;
+  border-bottom: 1px solid #8884FF;
+}
+
+.element {
+  padding-left: 10px;
+}
+
+.element-links {
+  padding-right: 10px;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.post-title {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.post-body {
+  margin-bottom: 12px;
+}
+
+/* User Pages */
+
+.user-posts-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  border-top: 3px solid #8884FF;
+}
+
+.user-posts-container h3 {
+  font-size: 48px;
+}
+
+.user-posts-container h4 {
+  border-top: 2px solid #8884FF;
+  padding-top: 8px;
+  font-size: 28px;
+}
+
+.user-posts-container h5 {
+  /* border-bottom: 2px solid #8884FF; */
 }
