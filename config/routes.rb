@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   end
 
   namespace :teacher do
-    resources :topics, only: [:new, :create, :edit, :update]
+    resources :topics, only: [:new, :create, :edit, :update, :destroy]
   end
 end

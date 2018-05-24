@@ -1,9 +1,15 @@
-%h1= @topic.title
-
--@topic_posts.each do |post|
-  %div{id: "post-#{post.id}"}
-    %h3.post-title= post.title
-    %p.post-body= post.body
-    -if current_user && post.user_id == current_user.id
-      =link_to 'Edit', edit_topic_post_path(@topic, post)
-      =link_to 'Delete', topic_post_path(@topic, post), method: :delete
+%main#topic-posts
+  .list-container
+    .heading-btn-container
+      %h1= @topic.title
+      =link_to 'Create New Post', new_topic_post_path(@topic, @post)
+        
+    -@topic_posts.each do |post|
+      %div{id: "post-#{post.id}", class: "list-element-container"}
+        .post-container
+          %h3.post-title= post.title
+          %p.post-body= post.body
+        -if current_user && post.user_id == current_user.id
+          .element-links
+            =link_to 'Edit', edit_topic_post_path(@topic, post)
+            =link_to 'Delete', topic_post_path(@topic, post), method: :delete

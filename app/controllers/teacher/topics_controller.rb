@@ -18,6 +18,12 @@ class Teacher::TopicsController < Teacher::BaseController
     redirect_to topic_path(@topic)
   end
 
+  def destroy
+    topic = Topic.find(params[:id])
+    topic.destroy
+    redirect_to topics_path
+  end
+
   private
 
   def topic_params

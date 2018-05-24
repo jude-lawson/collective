@@ -26,7 +26,7 @@ RSpec.configure do |config|
   config.before :each do
     # Common text used throughout application on headers, buttons, link, etc.
     @app_name = 'Collective'
-    @welcome_message = 'Let\'s learn together.'
+    @welcome_message = 'Let\'s learn together!'
     @sign_up = 'Sign Up'
     @join = 'Join Discussion'
     @log_in = 'Log In'
