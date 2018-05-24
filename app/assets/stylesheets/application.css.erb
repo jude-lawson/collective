@@ -22,17 +22,17 @@ body {
   font-family: 'Fira Sans', sans-serif;
   /* background-image: url(<%= asset_path('ambreen-hasan-346960-unsplash.jpg') %>); */
   background-size: 100%;
-  background: #FFFFFF;
+  background: #FEFEFE;
   color: #212121;
 }
 
 header {
-  background: #212121;
+  background: #5D576B;
   color: #FFFFFF;
   /* height: 80px; */
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
 }
 
@@ -40,17 +40,21 @@ header a {
   color: #FFFFFF;
   text-decoration: none;
   font-size: 24px;
-  height: 70px;
+}
+
+nav a {
+  margin-left: 20px;
 }
 
 a:hover {
-  color: #64ffda;
-  border-color: #64ffda;
+  color: #8884FF;
+  border-color: #8884FF;
   transition: .2s ease-in-out;
 }
 
 main {
   height: calc(100vh - 70px);
+  background-color: #FEFEFE;
 }
 
 /* Homepage */
@@ -93,21 +97,26 @@ main#homepage {
   transition: .2s ease-in-out;
 }
 
-#button-container a:hover {
+/* #button-container a:hover {
   color: #64ffda;
   border-color: #64ffda;
   transition: .2s ease-in-out;
-}
+} */
 
 #button-container p {
   margin-top: 30px;
 }
 
+/* main {
+  background-color: #FEFEFE;
+} */
+
+main h1 {
+  padding: 40px 0 0 40px;
+}
+
 /* New Profile */
 
-main#new-profile {
-  background-color: #b2dfdb;
-}
 
 #new-profile h1 {
   width: 400px;
@@ -123,36 +132,40 @@ main#new-profile {
   justify-content: center;
   width: 400px;
   margin: 40px auto;
+  background-color: #2F243A;
+  padding: 20px;
 }
 
 #new-profile form label {
   align-self: flex-start;
   font-size: 18px;
+  color: #FFF;
 }
 
 /* Forms */
 
 form input {
   border: none;
-  border-bottom: 2px solid #696969;
-  background-color: #b2dfdb;
+  border-bottom: 2px solid #FFF;
+  background-color: #2F243A;
   width: 100%;
   height: 30px;
   font-size: 16px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   margin-bottom: 40px;
   transition: .1s ease-in-out;
+  color: #FFF;
 }
 
 form input:focus {
   outline: none;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #8884FF;
   transition: .3s ease-in-out;
 }
 
 input[type="submit"] {
-  border: 1px solid #000;
-  color: #000;
+  border: 1px solid #FFF;
+  color: #FFF;
   width: auto;
   height: auto;
   font-size: 18px;
@@ -163,7 +176,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   cursor: pointer;
-  background-color: #00796b;
-  border-color: #00796b;
+  background-color: #8884FF;
+  border-color: #8884FF;
   color: #FFF;
 }

@@ -12,6 +12,7 @@
 
   <body>
     <header>
+      <%= link_to 'Collective' %>
       <nav>
         <%= link_to 'Topics', topics_path %>
         <% if current_user %>
@@ -19,6 +20,9 @@
           <%= form_tag logout_path, method: :delete do %>
             <%= button_tag 'Log Out' %>
           <% end %>
+        <% else %>
+          <%= link_to 'Sign Up', new_user_path %>
+          <%= link_to 'Log In', login_path %>
         <% end %>
       </nav>
     </header>
