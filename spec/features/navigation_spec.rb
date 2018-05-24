@@ -385,97 +385,97 @@ RSpec.describe 'Navigation' do
       end
     end
   end
-  xcontext '/users/:id/edit' do
-    describe 'A teacher in user visits the user page' do
-      it 'should have a topic link, and a link to the user\'s profile' do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
-        visit edit_user_path(@user1)
+  # xcontext '/users/:id/edit' do
+  #   describe 'A teacher in user visits the user page' do
+  #     it 'should have a topic link, and a link to the user\'s profile' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+  #       visit edit_user_path(@user1)
 
-        expect(page).to have_link('Topics')
-        expect(page).to have_link("#{@user1.first_name} #{@user1.last_name}")
-        expect(page).to have_button('Log Out')
-      end
+  #       expect(page).to have_link('Topics')
+  #       expect(page).to have_link("#{@user1.first_name} #{@user1.last_name}")
+  #       expect(page).to have_button('Log Out')
+  #     end
 
-      it 'the Topics link should take the user to the topics page' do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
-        visit edit_user_path(@user1)
+  #     it 'the Topics link should take the user to the topics page' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+  #       visit edit_user_path(@user1)
 
-        click_link 'Topics'
+  #       click_link 'Topics'
 
-        expect(page).to have_current_path(topics_path)
-        expect(page).to have_link(@topic1.title)
-      end
+  #       expect(page).to have_current_path(topics_path)
+  #       expect(page).to have_link(@topic1.title)
+  #     end
 
-      it 'the user\'s name should take them to their profile' do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
-        visit edit_user_path(@user1)
+  #     it 'the user\'s name should take them to their profile' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+  #       visit edit_user_path(@user1)
 
-        click_link "#{@user1.first_name} #{@user1.last_name}"
+  #       click_link "#{@user1.first_name} #{@user1.last_name}"
 
-        expect(page).to have_current_path(user_path(@user1))
-        expect(page).to have_content(@user1.first_name)
-        expect(page).to have_content(@user1.last_name)
-        expect(page).to have_content(@user1.email)
-      end
+  #       expect(page).to have_current_path(user_path(@user1))
+  #       expect(page).to have_content(@user1.first_name)
+  #       expect(page).to have_content(@user1.last_name)
+  #       expect(page).to have_content(@user1.email)
+  #     end
 
-      it 'Log Out should log the user out and take them to the user page' do
-        # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
-        # can't use stubs for testing logout
-        log_the_doctor_in
-        visit edit_user_path(@user1)
+  #     it 'Log Out should log the user out and take them to the user page' do
+  #       # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+  #       # can't use stubs for testing logout
+  #       log_the_doctor_in
+  #       visit edit_user_path(@user1)
 
-        click_button 'Log Out'
+  #       click_button 'Log Out'
 
-        expect(page).to have_current_path(root_path)
-        expect(page).to_not have_link("#{@user1.first_name} #{@user1.last_name}")
-      end
-    end
+  #       expect(page).to have_current_path(root_path)
+  #       expect(page).to_not have_link("#{@user1.first_name} #{@user1.last_name}")
+  #     end
+  #   end
 
-    describe 'A student in user visits the user page' do
-      it 'should have a topic link, and a link to the user\'s profile' do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
-        visit edit_user_path(@user2)
+  #   describe 'A student in user visits the user page' do
+  #     it 'should have a topic link, and a link to the user\'s profile' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+  #       visit edit_user_path(@user2)
 
-        expect(page).to have_link('Topics')
-        expect(page).to have_link("#{@user2.first_name} #{@user2.last_name}")
-        expect(page).to have_button('Log Out')
-      end
+  #       expect(page).to have_link('Topics')
+  #       expect(page).to have_link("#{@user2.first_name} #{@user2.last_name}")
+  #       expect(page).to have_button('Log Out')
+  #     end
 
-      it 'the Topics link should take the user to the topics page' do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
-        visit edit_user_path(@user2)
+  #     it 'the Topics link should take the user to the topics page' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+  #       visit edit_user_path(@user2)
 
-        click_link 'Topics'
+  #       click_link 'Topics'
 
-        expect(page).to have_current_path(topics_path)
-        expect(page).to have_link(@topic1.title)
-      end
+  #       expect(page).to have_current_path(topics_path)
+  #       expect(page).to have_link(@topic1.title)
+  #     end
 
-      it 'the user\'s name should take them to their profile' do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
-        visit edit_user_path(@user2)
+  #     it 'the user\'s name should take them to their profile' do
+  #       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
+  #       visit edit_user_path(@user2)
 
-        click_link "#{@user2.first_name} #{@user2.last_name}"
+  #       click_link "#{@user2.first_name} #{@user2.last_name}"
 
-        expect(page).to have_current_path(user_path(@user2))
-        expect(page).to have_content(@user2.first_name)
-        expect(page).to have_content(@user2.last_name)
-        expect(page).to have_content(@user2.email)
-      end
+  #       expect(page).to have_current_path(user_path(@user2))
+  #       expect(page).to have_content(@user2.first_name)
+  #       expect(page).to have_content(@user2.last_name)
+  #       expect(page).to have_content(@user2.email)
+  #     end
 
-      it 'Log Out should log the user out and take them to the user page' do
-        # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
-        # can't use stubs for testing logout
-        log_the_rory_in
-        visit edit_user_path(@user2)
+  #     it 'Log Out should log the user out and take them to the user page' do
+  #       # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+  #       # can't use stubs for testing logout
+  #       log_the_rory_in
+  #       visit edit_user_path(@user2)
 
-        click_button 'Log Out'
+  #       click_button 'Log Out'
 
-        expect(page).to have_current_path(root_path)
-        expect(page).to_not have_link("#{@user1.first_name} #{@user1.last_name}")
-      end
-    end
-  end
+  #       expect(page).to have_current_path(root_path)
+  #       expect(page).to_not have_link("#{@user1.first_name} #{@user1.last_name}")
+  #     end
+  #   end
+  # end
   context '/topics' do
     describe 'A teacher in user visits the user page' do
       it 'should have a topic link, and a link to the user\'s profile' do

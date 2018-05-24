@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      # Need a flash message here, test first 
+      # Need a flash message here, test first
+      flash[:notice] = 'Account could not be created. That email is already taken!'
       render :new
     end
   end

@@ -68,7 +68,7 @@ RSpec.describe 'Topic Pages' do
     describe 'A teacher visits the topic edit page' do
       it 'they can edit the topic' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
-        
+
         visit edit_teacher_topic_path(@topic1)
 
         edited_title = 'An Edited Title'
@@ -118,15 +118,15 @@ RSpec.describe 'Topic Pages' do
 
         expect(page).to have_content(@post1.title)
         expect(page).to have_content(@post1.body)
-        
+
         expect(page).to have_content(@post2.title)
         expect(page).to have_content(@post2.body)
       end
-      
+
       it 'a user should only have links to edit their posts' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
         visit topic_path(@topic1)
-        
+
         within('#post-' + @post2.id.to_s) do
           expect(page).to have_link('Edit')
         end
@@ -149,7 +149,7 @@ RSpec.describe 'Topic Pages' do
           expect(page).to have_link('Delete')
           click_link 'Delete'
         end
-        
+
         expect(page).to have_current_path(topic_path(@topic1))
         expect(page).to_not have_content(@post3.title)
         expect(page).to_not have_content(@post3.body)
@@ -180,7 +180,7 @@ RSpec.describe 'Topic Pages' do
           expect(page).to have_link('Delete')
           click_link 'Delete'
         end
-        
+
         expect(page).to have_current_path(topic_path(@topic1))
         expect(page).to_not have_content(@post2.title)
         expect(page).to_not have_content(@post2.body)
